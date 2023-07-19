@@ -2,7 +2,7 @@
 
 Welcome to armstracker, an interactive web-application visualising the flow of arms ex- and imports and the impact on global conflict.
 
-You can visit the app under <a href=https://www.arms-tracker.com>www.arms-tracker.com</a>
+You can visit the app at <a href=https://www.arms-tracker.com>www.arms-tracker.com</a>
 
 The app is both a passion-project as well as a project for my portfolio. 
 If you are interested in the deails on how I created and maintain this project, this is where you can find al the details. 
@@ -13,4 +13,29 @@ If you are only interested in the finished product, you can stop reading now.
 
 <h2>Repositories</h2>
 The app consits of three repositiories, plus this very repo you are reading right now.
+
+<h3>Taro</h3>
+This very repository that serves as dcoumentation and a landing page.
+
+<h3><a href=https://github.com/Kafkaese/taro-data>Taro-data</a></h3>
+This repository contains the backend of the arms-tracker app. This includes:
+
+- Data Exploration Jupyter Notebooks
+- Web Scrapers
+- Data Pipelines
+- The API code
+
+<h3><a href=https://github.com/Kafkaese/taro-web>Taro-web</a></h3>
+This repository contains the frontend of the arms-tracker app. 
+
+<h3><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h3>
+Repository containin Terraform IaaC for provisioning the production environment on Azure.
+
+- Azure Resource Group
+- Azure Storage Account
+- Azure Postgresql Flexible Server + Database
+- Azure Container Registry
+- 
+
+
 
