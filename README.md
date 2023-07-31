@@ -28,7 +28,7 @@ This repository contains the backend of the arms-tracker app. This includes:
 <h3><a href=https://github.com/Kafkaese/taro-web>Taro-web</a></h3>
 This repository contains the frontend of the arms-tracker app. 
 
-<h3><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h3>
+<h2><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h2>
 Repository containin Terraform IaaC for provisioning the production environment on Azure.
 
 - Azure Resource Group
