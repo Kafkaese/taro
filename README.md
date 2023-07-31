@@ -38,4 +38,6 @@ Repository containin Terraform IaaC for provisioning the production environment 
 - 
 
 
-
+<h3>Why taro?</h3>
+<a hred=https://en.wikipedia.org/wiki/Gerda_Taro>Gerda Taro</a> was a war photographer during the Spanish Civil War. She was immortalized in the Song Taro by indie band Alt-J. 
+A taro is also a root vegetable not too dissimilar to a potato, but that is neither here nor their.
