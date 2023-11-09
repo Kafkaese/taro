@@ -25,7 +25,7 @@ This repository contains the backend of the arms-tracker app. This includes:
 - Data Pipelines
 - The API code
 
-<h3><a href=https://github.com/Kafkaese/taro_web>Taro-web</a></h3>
+<h3><a href=https://github.com/Kafkaese/taro-map>Taro-map</a></h3>
 This repository contains the frontend of the arms-tracker app. 
 
 <h3><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h3>
