@@ -8,27 +8,34 @@ The app is both a passion-project as well as a project for my portfolio.
 If you are interested in the deails on how I created and maintain this project, this is where you can find al the details. 
 If you are only interested in the finished product, you can stop reading now.
 
-<h2>Structure</h2>
+<h1>Structure</h1>
 <img title="Project Structure" alt="This should be a really nice diagram of the project structure and workflow" src="images/taro-schema.svg">
 
-<h2>Repositories</h2>
-The app consits of three repositiories, plus this very repo you are reading right now.
+<h1>Repositories</h1>
+The app consists of three repositiories, plus this very repo you are reading right now.
 
-<h3>Taro</h3>
+TL;DR:
+- taro-data: Backend.
+- taro-map: Frontend.
+- taro-tf: Infrastructure.
+
+<h2>Taro</h2>
 This very repository that serves as dcoumentation and a landing page.
 
-<h3><a href=https://github.com/Kafkaese/taro-data>Taro-data</a></h3>
+<h2><a href=https://github.com/Kafkaese/taro-data>Taro-data</a></h2>
 This repository contains the backend of the arms-tracker app. This includes:
 
-- Data Exploration Jupyter Notebooks
-- Web Scrapers
-- Data Pipelines
-- The API code
+<h4>EDA Jupyter Notebooks</h4>
+Every data  projects  starts with the collection and exploration of data. Here you can EDA notebooks as well as notebooks containing the first code for data pipelines.
+Since some of the additional data is scraped from Wikipedia, you can also find notebooks with web scrapers in this section.
 
-<h3><a href=https://github.com/Kafkaese/taro-map>Taro-map</a></h3>
+<h4>API Code</h4>
+The API was written in python using the <a href=https://fastapi.tiangolo.com/>FastAPI</a> package, and is served by a <a href=https://www.uvicorn.org/>Uvicorn Web Server</a>.
+ 
+<h2><a href=https://github.com/Kafkaese/taro-map>Taro-map</a></h2>
 This repository contains the frontend of the arms-tracker app. 
 
-<h3><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h3>
+<h2><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h2>
 Repository containin Terraform IaaC for provisioning the production environment on Azure.
 
 - Azure Resource Group
