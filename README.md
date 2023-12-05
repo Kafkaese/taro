@@ -32,11 +32,24 @@ Since some of the additional data is scraped from Wikipedia, you can also find n
 <h4>API Code</h4>
 The REST API was written in python using the <a href=https://fastapi.tiangolo.com/>FastAPI</a> package. It is served by a <a href=https://www.uvicorn.org/>Uvicorn Web Server</a>. The API serves as the interface between the Postgresql Database and the Frontend. It contains various endpoints for get requests to retrieve data in a safe way and encapsulates the complexity of the sql queries. 
 
- <h4>Pipeline</h4>h4>
+ <h4>Pipeline</h4>
  In order to get the raw data preprocessed into the Postgresql Database that the API queries, there are various data pipelines. They are in the form of a custom python package named 'taro'. This way they can easily be containerized and quickly run from said container.
 
  <h4>Tests</h4>
  In order to ensure a good devlopment workflow, the code for both the API, as well as the Pipelines, comes with a number of tests. The <a href=https://docs.pytest.org/en/7.4.x/>Pytest</a> package was used to write these. The tests are crucial for the CI workflow discussed later.
+
+ <h4>Development Environment</h4>
+ For local development there are a number of files for a convinient development environment. This includes a <a href=https://docs.docker.com/compose/>Docker Compose</a> configuration. The configuration consists of services for the API, a postgresql server and the pipelines. Optionally, a frontend container can be enabled, but it it often turned out to be more convinient to have the frontend run on a seperate development server.
+ In order to be able to have ssl encryption in the development stage already, the neccesary files for this are also in this repository. This ssl certificate and key are locally trusted only and serve allow the development of ssl-encrypted content locally. The cerficate and key were created with <a href=https://github.com/FiloSottile/mkcert>mkcert</a>.
+
+ <h4>Continious Integration</h4>
+ Due to the microservice architecture of the appllication and the subsequent splitting of the code into several repositories, part of the CI pipeline is in this repository. Specifically, a Test Environment that is run every time a non-draft pull-request into the main branch of the taro-data respoistory is opened or synchronized. For this purpose a Github Actions workflow is used.
+ The workflow uses <a href=https://www.terraform.io/>Terraform</a> to provision a Test Environment on <a href=https://www.terraform.io/>Microsoft Azure</a>. This includes:
+ 
+ - A resource group.
+ - A container registry. 
+ - A Postgresql Flexible Server
+ - A Container Group
  
 <h2><a href=https://github.com/Kafkaese/taro-map>Taro-map</a></h2>
 This repository contains the frontend of the arms-tracker app. 
