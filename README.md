@@ -30,7 +30,13 @@ Every data  projects  starts with the collection and exploration of data. Here y
 Since some of the additional data is scraped from Wikipedia, you can also find notebooks with web scrapers in this section.
 
 <h4>API Code</h4>
-The API was written in python using the <a href=https://fastapi.tiangolo.com/>FastAPI</a> package, and is served by a <a href=https://www.uvicorn.org/>Uvicorn Web Server</a>.
+The REST API was written in python using the <a href=https://fastapi.tiangolo.com/>FastAPI</a> package. It is served by a <a href=https://www.uvicorn.org/>Uvicorn Web Server</a>. The API serves as the interface between the Postgresql Database and the Frontend. It contains various endpoints for get requests to retrieve data in a safe way and encapsulates the complexity of the sql queries. 
+
+ <h4>Pipeline</h4>h4>
+ In order to get the raw data preprocessed into the Postgresql Database that the API queries, there are various data pipelines. They are in the form of a custom python package named 'taro'. This way they can easily be containerized and quickly run from said container.
+
+ <h4>Tests</h4>
+ In order to ensure a good devlopment workflow, the code for both the API, as well as the Pipelines, comes with a number of tests. The <a href=https://docs.pytest.org/en/7.4.x/>Pytest</a> package was used to write these. The tests are crucial for the CI workflow discussed later.
  
 <h2><a href=https://github.com/Kafkaese/taro-map>Taro-map</a></h2>
 This repository contains the frontend of the arms-tracker app. 
