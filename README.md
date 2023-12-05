@@ -57,6 +57,19 @@ After the environment has been provisioned, the images for the API and the Data 
 <h2><a href=https://github.com/Kafkaese/taro-map>Taro-map</a></h2>
 This repository contains the frontend of the arms-tracker app. 
 
+<h4>React.js Application</h4>
+The frontend was written in javascript using the <a href=https://react.dev/>React Frameworl</a>. It is containerized with Docker and served by an <a href=https://nginx.org/en/>Nginx<a> web server.</a>
+
+ <h4>Continious Integration</h4>
+Similarily to the backend repository, the frontend repository also contains some elements of the CI pipeline. Again, a Test Workflow, using Github Actions, is run every time a non-draft pull-request into the main branch of the taro-mao respoistory is opened or synchronized.
+The workflow uses <a href=https://www.terraform.io/>Terraform</a> to provision a Test Environment on <a href=https://www.terraform.io/>Microsoft Azure</a>, which includes:
+ 
+ - A resource group.
+ - A container registry. 
+ - A Container Group
+
+After the environment has been provisioned, the image for the frontend is build and pushed to the container registry. Then the Container Group starts an instance of the Frontend image and the tests can be run. In a final step, no matter what the outcome of any previous steps, the Test Environment is destroyed.
+
 <h2><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h2>
 Repository containin Terraform IaaC for provisioning the production environment on Azure.
 
