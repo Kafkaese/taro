@@ -2,10 +2,10 @@
 
 Welcome to armstracker, an interactive web-application visualising the flow of arms ex- and imports and the impact on global conflict.
 
-You can visit the app at <a href=https://www.arms-tracker.com>www.arms-tracker.com</a>
+You can visit the app at <a href=https://www.arms-tracker.app>www.arms-tracker.app</a>
 
 The app is both a passion-project as well as a project for my portfolio. 
-If you are interested in the deails on how I created and maintain this project, this is where you can find al the details. 
+If you are interested in the deails on how I created and maintain this project, this is where you can find all the details. 
 If you are only interested in the finished product, you can stop reading now.
 
 <h2>Structure</h2>
