@@ -71,7 +71,7 @@ The workflow uses <a href=https://www.terraform.io/>Terraform</a> to provision a
 After the environment has been provisioned, the image for the frontend is build and pushed to the container registry. Then the Container Group starts an instance of the Frontend image and the tests can be run. In a final step, no matter what the outcome of any previous steps, the Test Environment is destroyed.
 
 <h2><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h2>
-Repository containin Terraform IaaC for provisioning the production environment on Azure.
+Repository containin Terraform IaaC for provisioning the production environment on Microsoft Azure.
 
 - Azure Resource Group
 - Azure Storage Account
