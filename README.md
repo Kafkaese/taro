@@ -13,11 +13,12 @@ If you are only interested in the finished product, you can stop reading now.
 
 <h1>Repositories</h1>
 The app consists of three repositiories, plus this very repo you are reading right now.
+<br> </br>
 
-TL;DR:
-- taro-data: Backend.
-- taro-map: Frontend.
-- taro-tf: Infrastructure.
+<b>TL;DR:</b>
+- <a href=https://github.com/Kafkaese/taro-data>taro-data</a>: Backend.
+- <a href=https://github.com/Kafkaese/taro-map>taro-map</a>: Frontend.
+- <a href=https://github.com/Kafkaese/taro-tf>taro-tf</a>: Infrastructure.
 
 <h2>Taro</h2>
 This very repository that serves as dcoumentation and a landing page.
@@ -46,7 +47,8 @@ The configuration consists of services for the API, a postgresql server and the 
  <h4>Continious Integration</h4>
  Due to the microservice architecture of the appllication and the subsequent splitting of the code into several repositories, part of the CI pipeline is in this repository. Specifically, a Test Environment that is run every time a non-draft pull-request into the main branch of the taro-data respoistory is opened or synchronized. For this purpose a Github Actions workflow is used.
  The workflow uses <a href=https://www.terraform.io/>Terraform</a> to provision a Test Environment on <a href=https://www.terraform.io/>Microsoft Azure</a>. This includes:
- 
+ <br> </br>
+
  - A resource group.
  - A container registry. 
  - A Postgresql Flexible Server
@@ -63,7 +65,8 @@ The frontend was written in javascript using the <a href=https://react.dev/>Reac
  <h4>Continious Integration</h4>
 Similarily to the backend repository, the frontend repository also contains some elements of the CI pipeline. Again, a Test Workflow, using Github Actions, is run every time a non-draft pull-request into the main branch of the taro-mao respoistory is opened or synchronized.
 The workflow uses <a href=https://www.terraform.io/>Terraform</a> to provision a Test Environment on <a href=https://www.terraform.io/>Microsoft Azure</a>, which includes:
- 
+ <br> </br>
+  
  - A resource group.
  - A container registry. 
  - A Container Group
@@ -72,6 +75,7 @@ After the environment has been provisioned, the image for the frontend is build 
 
 <h2><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h2>
 Repository containin Terraform IaaC for provisioning the production environment on Microsoft Azure.
+<br> </br>
 
 - Azure Resource Group
 - Azure Storage Account
