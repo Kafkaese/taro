@@ -65,23 +65,41 @@ The frontend was written in javascript using the <a href=https://react.dev/>Reac
  <h4>Continious Integration</h4>
 Similarily to the backend repository, the frontend repository also contains some elements of the CI pipeline. Again, a Test Workflow, using Github Actions, is run every time a non-draft pull-request into the main branch of the taro-mao respoistory is opened or synchronized.
 The workflow uses <a href=https://www.terraform.io/>Terraform</a> to provision a Test Environment on <a href=https://www.terraform.io/>Microsoft Azure</a>, which includes:
- <br> </br>
-  
- - A resource group.
- - A container registry. 
- - A Container Group
+ <br> </br> 
 
 After the environment has been provisioned, the image for the frontend is build and pushed to the container registry. Then the Container Group starts an instance of the Frontend image and the tests can be run. In a final step, no matter what the outcome of any previous steps, the Test Environment is destroyed.
 
 <h2><a href=https://github.com/Kafkaese/taro-tf>Taro-tf</a></h2>
-Repository containin Terraform IaaC for provisioning the production environment on Microsoft Azure.
+Repository containin Terraform IaaC for provisioning the production environment on Microsoft Azure. The structure of the infrastructure is visualized in the following graph.
 <br> </br>
 
-- Azure Resource Group
-- Azure Storage Account
-- Azure Postgresql Flexible Server + Database
-- Azure Container Registry
-- 
+<img title="Production Environment Structure" alt="This should be a really nice diagram of the infrastructure of the production environment" src="images/taro_production_schema.svg">
+
+The indiviudal components of the infrastructure are listed below:
+
+<h4>Resource Group, Storage, Registry and Network</h4>
+All resources on Azure must  be part of a Resource Group, so the production environment has a dedicated Resource Group. 
+Part of the Resource Group is a Storage Account, that stores the backend for all the Terraform Configurations, including the one for the production environment. 
+For this reason the Resource Group  and the Storage Account are marked as indestructible.
+
+A dedicated Virtual Network for the prodcution environment is also created, as well as a Container Registry for all docker images needed.
+  
+<h4>Postgres Server</h4>
+An Azure Postgresql Flexible Server. The server is initiated with a database for the backend. It also comes with a private DNS zone that assigns a FQDN within the Virtual Network to the Postgres Server. 
+The server has a dedicated Subnet with a servide delegation to 'Azure Postgres Flexible Server'.  
+
+<h4>API and Data Pipeline</h4>
+The API and the Data Pipeline are both containerized and deployed as part of a Container Group. The Data Pipeline is deployed as an init container that is run exactly once during creation of the Container Group. Then the API container is deployed in the same Container Group. The API container runs a Uvicorn server, serving a FastAPI application.
+Like most resources the Container Group has a dedicated Subnet with a service delegation.
+
+<h4>Frontend</h4>
+The React frontend is also containerized and deployed in a dedicated Container Group, again with its own subnet with a service delegation.  The container runs an Nginx webserver that serves the build React application.
+
+<h4>Reverse Proxy</h4>
+The Application is reachable via a single public IP address that has a number of DNS records on Google Domains. The public IP is associated with a Network Interface connected to a Virtual Machine.
+The Virtual Machine runs an Nginx Reverse Proxy Server. The server is configured to listen on the 443 HTTPS port. For this purpose the ssl certificate and keychain are stored on the VM. The certifcate is valid for arms-tracker.app as well as api.arms-tracker.app, so all traffic is ssl encrypted.
+The Network Interface has a Network Security GGroup attached, with Inbound Rules for HTTPS for regular encrypted traffic to the API and the Frontend, and also for SSH for development and maintenance purposes.
+The reverse proxy server is configured to send traffic to arms-tracker.app to the Frontend Container Groups private IP. All traffic to api.arms-tracker.app is directed to the API Container Groups private IP. 
 
 
 <h2>Why taro?</h2>
